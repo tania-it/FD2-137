@@ -10,7 +10,7 @@ function transformToNumber(data) {
         return NaN;
     }
 
-    return Number (replaceSymbols(data, ',','.'));
+    return Number(replaceSymbols(data, ',', '.'));
 }
 
 function isNonEmptyString(value) {
@@ -25,7 +25,7 @@ const   firstName = getUserInput ('Введите вашу фамилию:', kee
 const   middleName = getUserInput ('Введите ваше имя:', keepWithoutChange, isNonEmptyString);
 const   lastName = getUserInput ('Введите ваше отчество:', keepWithoutChange, isNonEmptyString);
 let     age = getUserInput ('Введите ваш возраст:', transformToNumber, isValidAge);
-let     gender;
+let     gender = '';
 
 /*do {
     firstName = prompt('Введите вашу фамилию:');
@@ -102,7 +102,6 @@ function getUserAge() {
  
 gender = getUserGender();
 
-let retirementStatus;
 
 if (gender == 'M' && age >= 63) {
     retirementStatus = 'Да';
@@ -113,6 +112,7 @@ if (gender == 'M' && age >= 63) {
 }
 */
 
+let retirementStatus = '';
 
 let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastName + '\n';
     message += 'Ваш возраст : ' + age + '\n';
@@ -120,19 +120,6 @@ let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastNa
     message += 'На пенсии : ' + retirementStatus + '\n';
 
 alert(message);
-
-function getUserInput (message) {
-    let userInput
-do {
-    userInput = prompt('message');
-    if (typeof userInput === 'string') {
-        userInput = userInput.trim(); // remove empty spaces before and after inputtext
-    } else {
-        userInput = null;
-    }
-} while (Boolean(userInput) === false); 
-    return userInput;
-}
 
 function getUserInput (message, transformData, isValid) {
     let userInput = null;
@@ -149,16 +136,17 @@ function getUserInput (message, transformData, isValid) {
     } while (isCancelled || !isValid(userInput));
     return userInput;
 }
-function replaceSymbols (str, targetSymbol, replacementSymbol) {
-    let normalizedUserInput = ''; // a line where all commas are replaced with dots
+
+function replaceSymbols (inputString, targetSymbol, replacementSymbol) {
+    let resultstring = ''; // a line where all commas are replaced with dots
 
     for (const char of inputString) {
-        if (char === 'targetSymbol') {
+        if (char === targetSymbol) {
            resultstring += replacementSymbol;
         } else {
-           resultString += char;
+          resultstring += char;
         }
     }
-        return resultString;
+        return resultstring;
 
 }
