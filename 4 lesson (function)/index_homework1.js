@@ -13,6 +13,7 @@ function transformToNumber(data) {
     }
     return Number(replaceSymbols(data, ',', '.'));
 }
+
 function transformToSex(data) {
     switch (data) {
         case 'м':
@@ -24,6 +25,7 @@ function transformToSex(data) {
         case 'Ж':
         case 'f':
         case 'F':
+            return SEX_FEMALE;
         default:
             return '';
     }
@@ -46,7 +48,7 @@ const middleName = getUserInput('Введите ваше имя:', keepWithoutCh
 const lastName = getUserInput('Введите ваше отчество:', keepWithoutChange, isNonEmptyString);
 const age = getUserInput('Введите ваш возраст:', transformToNumber, isValidAge);
 const gender = getUserInput('Введите ваш пол: "M" или "Ж":', transformToSex, isNonEmptyString);
-const retiredAge = sex === SEX_MALE ? RETIRED_MALE_AGE : RETIRED_FEMALE_AGE;
+const retiredAge = gender === SEX_MALE ? 63 : 58;
 const retired = age >= retiredAge;
 
 
@@ -140,7 +142,7 @@ let retirementStatus = '';
 let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastName + '\n';
 message += 'Ваш возраст : ' + age + '\n';
 message += 'Ваш пол : ' + gender + '\n';
-message += 'На пенсии : ' + retirementStatus + '\n';
+message += 'На пенсии : ' + retired + '\n';
 
 alert(message);
 
