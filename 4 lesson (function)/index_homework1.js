@@ -1,16 +1,32 @@
-const maxAge = 150, 
+const maxAge = 150,
       minAge = 0;
+const SEX_MALE = 'M';
+const SEX_FEMALE = 'Ж';
 
 function keepWithoutChange(data) {
     return data;
-}      
+}
 
 function transformToNumber(data) {
     if (!data) {
         return NaN;
     }
-
     return Number(replaceSymbols(data, ',', '.'));
+}
+function transformToSex(data) {
+    switch (data) {
+        case 'м':
+        case 'М':
+        case 'M':
+        case 'm':
+            return SEX_MALE;
+        case 'ж':
+        case 'Ж':
+        case 'f':
+        case 'F':
+        default:
+        return '';
+    }
 }
 
 function isNonEmptyString(value) {
@@ -20,12 +36,19 @@ function isValidAge(inputAge) {
     return Number.isFinite(inputAge) && inputAge >= minAge && inputAge <= maxAge;
 }
 
+function isvalidAge(inputAge) {
+    return Number.isFinite(inputAge) && inputAge >= minAge && inputAge <= maxAge;
+}
 
-const   firstName = getUserInput ('Введите вашу фамилию:', keepWithoutChange, isNonEmptyString);
-const   middleName = getUserInput ('Введите ваше имя:', keepWithoutChange, isNonEmptyString);
-const   lastName = getUserInput ('Введите ваше отчество:', keepWithoutChange, isNonEmptyString);
-let     age = getUserInput ('Введите ваш возраст:', transformToNumber, isValidAge);
-let     gender = '';
+
+const firstName = getUserInput('Введите вашу фамилию:', keepWithoutChange, isNonEmptyString);
+const middleName = getUserInput('Введите ваше имя:', keepWithoutChange, isNonEmptyString);
+const lastName = getUserInput('Введите ваше отчество:', keepWithoutChange, isNonEmptyString);
+const age = getUserInput('Введите ваш возраст:', transformToNumber, isValidAge);
+const gender = getUserInput('Введите ваш пол: "M" или "Ж":', transformToSex, isNonEmptyString);
+const retiredAge = sex === SEX_MALE ? RETIRED_MALE_AGE : RETIRED_FEMALE_AGE;
+const retired = age >= retiredAge;
+
 
 /*do {
     firstName = prompt('Введите вашу фамилию:');
@@ -115,17 +138,17 @@ if (gender == 'M' && age >= 63) {
 let retirementStatus = '';
 
 let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastName + '\n';
-    message += 'Ваш возраст : ' + age + '\n';
-    message += 'Ваш пол : ' + gender + '\n';
-    message += 'На пенсии : ' + retirementStatus + '\n';
+message += 'Ваш возраст : ' + age + '\n';
+message += 'Ваш пол : ' + gender + '\n';
+message += 'На пенсии : ' + retirementStatus + '\n';
 
 alert(message);
 
-function getUserInput (message, transformData, isValid) {
+function getUserInput(message, transformData, isValid) {
     let userInput = null;
     let isCancelled = false;
     do {
-       const rawuserInput = prompt(message);
+        const rawuserInput = prompt(message);
         isCancelled = rawuserInput === null;
 
         if (isCancelled) {
@@ -137,16 +160,26 @@ function getUserInput (message, transformData, isValid) {
     return userInput;
 }
 
-function replaceSymbols (inputString, targetSymbol, replacementSymbol) {
+function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
     let resultstring = ''; // a line where all commas are replaced with dots
 
     for (const char of inputString) {
         if (char === targetSymbol) {
-           resultstring += replacementSymbol;
+            resultstring += replacementSymbol;
         } else {
-          resultstring += char;
+            resultstring += char;
         }
     }
-        return resultstring;
+    return resultstring;
+
+}
+
+function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
+    let resultstring = ''; 
+
+    for (const char of inputString) {
+        resultstring += char === targetSymbol ? replacementSymbol : char;
+    }
+    return resultstring;
 
 }
