@@ -34,33 +34,53 @@ do {
     }
 } while (Boolean(lastName) === false);
 
-do {
-    const userInput = prompt ('Введите ваш возраст:');   // string || null
-    //age = userInput ? Number (userInput) : NaN;
-    if (userInput !== undefined || userInput !== null || userInput !== false) {
-        let normalizedUserInput = ''; // a line where all commas are replaced with dots
-        for (const char of userInput) {
-            if (char === ',') {
-                normalizedUserInput +='.';
-            } else {
-                normalizedUserInput += char;
+function getUserAge() {
+    let age2;
+    do {
+        const userInput = prompt ('Введите ваш возраст:');   // string || null
+        //age = userInput ? Number (userInput) : NaN;
+        if (userInput !== undefined || userInput !== null || userInput !== false) {
+            let normalizedUserInput = ''; // a line where all commas are replaced with dots
+            for (const char of userInput) {
+                if (char === ',') {
+                    normalizedUserInput +='.';
+                } else {
+                    normalizedUserInput += char;
+                }
             }
+            age2 = new Number(normalizedUserInput);
+        } else {
+            age2 = NaN;
         }
-        age = new Number(normalizedUserInput);
-    } else {
-        age = NaN;
-    }
-} while (isNaN(age) || age > maxAge || age < minAge);
- 
-do {
+    } while (isNaN(age2) || age2 > maxAge || age2 < minAge);
+
+    return age2;
+}   
+    age = getUserAge();
+/*do {
     gender = prompt('Введите ваш пол: "M" или "Ж":');   // string || null
     if (typeof gender === 'string') {
         gender = gender.toUpperCase(); // to avoid confusing between Lowercase and Uppercase chars   
     } else {
         gender = null;
     }
-} while (gender === null || (gender !== 'М' && gender !== 'Ж'));
+} while (gender === null || (gender !== 'М' && gender !== 'Ж'));*/
+
+function getUserGender() {
+    let gender2;
+    do {
+        gender2 = prompt('Введите ваш пол: "M" или "Ж":');   // string || null
+        if (typeof gender2 === 'string') {
+            gender2 = gender2.toUpperCase(); // to avoid confusing between Lowercase and Uppercase chars   
+        } else {
+            gender2 = null;
+        }
+    } while (gender2 === null || (gender2 !== 'М' && gender2 !== 'Ж'));
+
+    return gender2;
+}
  
+gender = getUserGender();
 
 let retirementStatus;
 
@@ -71,6 +91,8 @@ if (gender == 'M' && age >= 63) {
 } else {
     retirementStatus = 'Нет';
 }
+
+
 
 let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastName + '\n';
     message += 'Ваш возраст : ' + age + '\n';
