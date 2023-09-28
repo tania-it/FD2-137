@@ -16,16 +16,16 @@ function transformToNumber(data) {
 function transformToSex(data) {
     switch (data) {
         case 'м':
-        case 'М':
         case 'M':
         case 'm':
+        case 'M':
             return SEX_MALE;
         case 'ж':
         case 'Ж':
         case 'f':
         case 'F':
         default:
-        return '';
+            return '';
     }
 }
 
@@ -173,9 +173,9 @@ function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
     return resultstring;
 
 }
-
+// замена символа через тернарный оператор
 function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
-    let resultstring = ''; 
+    let resultstring = '';
 
     for (const char of inputString) {
         resultstring += char === targetSymbol ? replacementSymbol : char;
