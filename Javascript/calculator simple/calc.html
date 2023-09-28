@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple_calc</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        input{
+            width:25px;
+            height: 25px;
+            margin: 3px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+   <div id="result"></div> 
+
+    <input type="button" value="1" onclick="getNumber(1)">
+    <input type="button" value="2" onclick="getNumber(2)">
+    <input type="button" value="3" onclick="getNumber(3)"><br>
+    <input type="button" value="4" onclick="getNumber(4)">
+    <input type="button" value="5" onclick="getNumber(5)">
+    <input type="button" value="6" onclick="getNumber(6)"><br>
+    <input type="button" value="7" onclick="getNumber(7)">
+    <input type="button" value="8" onclick="getNumber(8)">
+    <input type="button" value="9" onclick="getNumber(9)"><br>
+    <input type="button" value="0" onclick="getNumber(0)">
+
+    <input type="button" value="+" onclick="getOperation('+')">
+    <input type="button" value="-" onclick="getOperatoin('-')"><br>
+    <input type="button" value="*" onclick="getOperation('*')">
+    <input type="button" value="/" onclick="getOperation('/')">
+    <input type="button" value="=" onclick="getResult('=')">
+
+    <Script>
+       
+       var x = null, y = null;
+       var oper;
+       function getNumber (number) {
+           if (x===null) {
+                x=number;
+                console.log (x);
+           }
+           else {
+               y=number;
+               console.log (y);
+           }
+
+        } 
+
+        function getOperation (sign){
+           oper = sign;
+           console.log (oper);
+        }
+
+        function getResult () {
+            console.log ('=');
+        switch (oper) {
+            case "+" : console.log (x+y); break;
+            case "-" : console.log (x-y); break;
+            case "*" : console.log (x*y); break;
+            case "/" : console.log (x/y); break;
+        }
+    }
+
+    </Script>
+</body>
+
+</html>
+
+
+
+<!--switch (oper) {
+    case "+" : return x+y;
+    case "-" : return x-y;
+    case "*" : return x*y;
+    case "/" : return x/y;
+} -->
