@@ -174,7 +174,7 @@ function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
 
 }
 // замена символа через тернарный оператор
-function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
+/*function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
     let resultstring = '';
 
     for (const char of inputString) {
@@ -183,3 +183,4 @@ function replaceSymbols(inputString, targetSymbol, replacementSymbol) {
     return resultstring;
 
 }
+*/
