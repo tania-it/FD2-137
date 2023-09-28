@@ -1,13 +1,33 @@
 const maxAge = 150, 
       minAge = 0;
- 
-let firstName,
-    middleName,
-    lastName,
-    age,
-    gender;
 
-do {
+function keepWithoutChange(data) {
+    return data;
+}      
+
+function transformToNumber(data) {
+    if (!data) {
+        return NaN;
+    }
+
+    return Number (replaceSymbols(data, ',','.'));
+}
+
+function isNonEmptyString(value) {
+    return Boolean(value);
+}
+function isValidAge(inputAge) {
+    return Number.isFinite(inputAge) && inputAge >= minAge && inputAge <= maxAge;
+}
+
+
+const   firstName = getUserInput ('Введите вашу фамилию:', keepWithoutChange, isNonEmptyString);
+const   middleName = getUserInput ('Введите ваше имя:', keepWithoutChange, isNonEmptyString);
+const   lastName = getUserInput ('Введите ваше отчество:', keepWithoutChange, isNonEmptyString);
+let     age = getUserInput ('Введите ваш возраст:', transformToNumber, isValidAge);
+let     gender;
+
+/*do {
     firstName = prompt('Введите вашу фамилию:');
     if (typeof firstName === 'string') {
         firstName = firstName.trim(); // remove empty spaces before and after inputtext
@@ -32,7 +52,7 @@ do {
     } else {
         lastName = null;
     }
-} while (Boolean(lastName) === false);
+} while (Boolean(lastName) === false); 
 
 function getUserAge() {
     let age2;
@@ -66,7 +86,7 @@ function getUserAge() {
     }
 } while (gender === null || (gender !== 'М' && gender !== 'Ж'));*/
 
-function getUserGender() {
+/*function getUserGender() {
     let gender2;
     do {
         gender2 = prompt('Введите ваш пол: "M" или "Ж":');   // string || null
@@ -91,7 +111,7 @@ if (gender == 'M' && age >= 63) {
 } else {
     retirementStatus = 'Нет';
 }
-
+*/
 
 
 let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastName + '\n';
@@ -100,3 +120,45 @@ let message = 'Ваше ФИО : ' + firstName + ' ' + middleName + ' ' + lastNa
     message += 'На пенсии : ' + retirementStatus + '\n';
 
 alert(message);
+
+function getUserInput (message) {
+    let userInput
+do {
+    userInput = prompt('message');
+    if (typeof userInput === 'string') {
+        userInput = userInput.trim(); // remove empty spaces before and after inputtext
+    } else {
+        userInput = null;
+    }
+} while (Boolean(userInput) === false); 
+    return userInput;
+}
+
+function getUserInput (message, transformData, isValid) {
+    let userInput = null;
+    let isCancelled = false;
+    do {
+       const rawuserInput = prompt(message);
+        isCancelled = rawuserInput === null;
+
+        if (isCancelled) {
+            userInput = null;
+        } else {
+            userInput = transformData(rawuserInput);
+        }
+    } while (isCancelled || !isValid(userInput));
+    return userInput;
+}
+function replaceSymbols (str, targetSymbol, replacementSymbol) {
+    let normalizedUserInput = ''; // a line where all commas are replaced with dots
+
+    for (const char of inputString) {
+        if (char === 'targetSymbol') {
+           resultstring += replacementSymbol;
+        } else {
+           resultString += char;
+        }
+    }
+        return resultString;
+
+}
