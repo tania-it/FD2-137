@@ -159,6 +159,7 @@ function getUserInput(message, transformData, isValid) {
             userInput = transformData(rawuserInput);
         }
     } while (isCancelled || !isValid(userInput));
+    
     return userInput;
 }
 
