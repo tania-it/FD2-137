@@ -3,5 +3,5 @@ function find_Even(...items) {
         return el % 2 === 0
     });
 }
-
-// find_Even(1, 2, 5, 8, 4);
+console.log(find_Even(1, 2, 5, 8, 4));
+console.log(find_Even(1, 3, 5, 9, 7));
