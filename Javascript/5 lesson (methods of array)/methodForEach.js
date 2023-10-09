@@ -7,3 +7,9 @@ m.forEach(func); // выполняет указанную функцию для 
 console.log (m); 
 
 m.forEach( (value, i) => console.log (i + ' / ' + value)); // сокращённая запись
+
+
+let myarr = ['яблоко', 'груша', 'помидор'];
+let mystr = '';
+myarr.forEach ((value, key) => mystr = mystr + value + ' ');
+console.log (mystr);
