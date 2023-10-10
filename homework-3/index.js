@@ -25,8 +25,11 @@ const data = [
 
 /* ************* ГЛАВНАЯ ФУНКЦИЯ !!! ************** */
 function createTextTable(columns, data) {
+    if (!Array.isArray(columns) || !Array.isArray(data)) {
+        return '';
+    }
     let maxColumnWidth = getMaxColumnWidth(data);
-    console.log(maxColumnWidth);
+    //  console.log(maxColumnWidth);
     let rows = [];
     data.forEach(function (item, index) { // ... делать что-то с item console.log(item);
         rows.push(buildOneRow(item, maxColumnWidth));
