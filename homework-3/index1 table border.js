@@ -81,8 +81,25 @@ function buildOneRow(item, maxColumnWidth) {
     return row.join('\u2502') + '\u2502';
 }
 
+function buildTableTopBorder(maxColumnWidth) {
+    const horizontalLine = '\u2500';
+    const topLeftCorner = '\u250C';
+    const topRightCorner = '\u2510';
+    const verticalTopLine = '\u252C';
+    let topborder = topLeftCorner;
+
+    for (const key in maxColumnWidth) {
+        topborder = topborder +
+            horizontalLine.repeat(maxColumnWidth[key]) + verticalTopLine;
+    }
+    return topborder;
+}
+const obj = { name: 7, count: 3, price: 6 };
+console.log(buildTableTopBorder(obj));
+
+
 // выравнивание ячейки таблицы т.е. добавление пробелов слева или справа
-function alignText(value, maxColumnLength, where) {
+/*function alignText(value, maxColumnLength, where) {
     if (value.length < maxColumnLength) {
         if (where === 'left') {
             return value.padEnd(maxColumnLength);
@@ -97,3 +114,4 @@ function alignText(value, maxColumnLength, where) {
 
 const textTable = createTextTable(columns, data);
 console.log(textTable);
+*/
