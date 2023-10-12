@@ -13,3 +13,7 @@ let myarr = ['яблоко', 'груша', 'помидор'];
 let mystr = '';
 myarr.forEach ((value, key) => mystr = mystr + value + ' ');
 console.log (mystr);
+
+const myArray = [1,2,3];
+myArray.forEach(el => console.log(el*2));
+console.log (myArray);

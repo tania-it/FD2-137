@@ -1,3 +1,4 @@
+
 function func_m (value,i,arr) {
    return value*value; 
 }
@@ -8,4 +9,17 @@ console.log (mm.map(func_m));
 // именно это значение попадёт в итоговый трансформированный массив.
 console.log (mm.map(v => v*v*v));
 
+/****************************************************************************** */
+const myArray = [1,2,3,4,5];
 
+const newArray = myArray.map(el => el*3);
+console.log(myArray);
+console.log(newArray);
+
+/****************************************************************************** */
+const myArray1 = [1,2,3,4,5];
+const newArray1 = myArray.map(function(el) {
+    return (el*2);
+});
+console.log(myArray);
+console.log(newArray);

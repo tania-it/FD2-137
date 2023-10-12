@@ -5,3 +5,8 @@ console.log (m.splice(2, 0, 'q', 'r'));
 console.log (m);
 console.log (m.splice(3, 1, 'r1', 'r2'));
 console.log (m);
+
+let arr = ['Я', 'изучаю', 'JavaScript'];
+arr.splice (1,1);
+console.log (arr);
+
