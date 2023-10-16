@@ -62,3 +62,6 @@ const userInfo = ({ name, commentsQty }) => {
 }
 
 console.log(userInfo(userProfile));
+
+// надо будет написать свой класс 
+// валидатор

@@ -1,20 +1,25 @@
-function getSumNumber(num){
-   let myarr = ['2020', '2021', '2022', '2013'];
+function getSumNumber(){
    let myarr_select = [];
-//   let mystr = myarr.toString().split('');
-  
-    let sum = 0;
-    let tmp;
-    for (let i=0; i < myarr.length; i++) {
-        console.log (myarr[i]);
-        tmp = num % 10; // 3    2    5
-        num = (num - tmp) / 10;
-        sum += tmp;
-        console.log (sum);
-//        myarr_select = myarr_select.push(+sum); // ??? как добавить суммы в пустой массив
+
+    for (let i=0; i <= 2023; i++) {
+        if (getDigitSum(i) === 13) {
+            myarr_select.push(i);
+        }
     }
-    console.log (myarr);
    
+    return myarr_select;
+}
+
+function getDigitSum(value) {
+    let sum = 0;
+    while (value > 10) {
+        const digit = value % 10;
+        sum += digit;
+        value = Math.trunc(value / 10)
+    }
+
+    sum+= value;
+
     return sum;
 }
 
@@ -28,7 +33,7 @@ function getSelectedNumbers (result, i, a) {
         return result === 6;  // вывести те элементы, сумма цифр которых = 6;
 }
 let myarr = [2020, 2021, 2022, 2013];
-console.log( myarr.filter(getSelectedNumbers));
+console.log( myarr.filter((year) => getDigitSum(year) === 6));
 
 
 
