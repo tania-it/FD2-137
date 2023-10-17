@@ -1,4 +1,4 @@
-class MyObject_2 {   
+class MyObject {   
     value;
 
     constructor(value) {

@@ -9,7 +9,7 @@ class MyCoolObject extends MyObject {
        
         hello() {
                 console.log (this.value);
-                this.#bye();                      //super.hello();   вызовет метод из родительского класса
+                this.#bye();                 //super.hello();   вызовет метод из родительского класса
         }
 
         #bye() {

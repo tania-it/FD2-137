@@ -1,1 +1,4 @@
-const myObject2 = new MyObject_2('hello');  // !класс нельзя вызывать без new!
+const myObject = new MyObject('basic');  // !класс нельзя вызывать без new!
+const myCoolObject = new MyCoolObject('cool', 95);
+
+// myCoolObject.#coolIndex;
