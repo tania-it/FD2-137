@@ -1,0 +1,1 @@
+const myObject2 = new MyObject_2('hello');  // !класс нельзя вызывать без new!
