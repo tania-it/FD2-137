@@ -1,4 +1,4 @@
-const timerId = setTimeout(() => {
+/* const timerId = setTimeout(() => {
     console.log(5);
 }, 5_000);
 
@@ -33,21 +33,30 @@ function scheduleTask(task) {
 
 /*queueMicrotask(() => {
 
-}) -     
-*/
+})     
+
 
 const stop = renderCycle( () => {
 
 });
+*/
+
+let v = 0;
+const cancelCycle = renderCycle(() => {
+    document.body.textContent = String(++v);
+});
+
 
 function renderCycle(callback) {
-    const id = requestAnimationFrame(() => {
-            callback;
-            requestAnimationFrame 
-    });
-
-    return () => {
-        cancelAnimationFrame(id);
+    const idRef = { id: 0 };
+    const render = () => {
+        idRef.id = requestAnimationFrame(() => {
+            callback();
+            render();
+        });
     };
-
+    render();
+    return () => {
+        cancelAnimationFrame(idRef.id);
+    };
 }
