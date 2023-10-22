@@ -37,7 +37,6 @@ function setDelay(delay) {
 
 }
 
-
 printWithDelay('Мама мыла раму рано', [2, 6, 7,]);
 
 
