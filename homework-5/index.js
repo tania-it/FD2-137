@@ -16,15 +16,17 @@ function printWithDelay(text, arrDelay) {
     let delay = 0;
     console.log('before forEach');
     arrWords.forEach((element,i) => {
-        delay +=  arrDelay[i];
+        delay += arrDelay[i];
         console.log(element + ' / ' + arrDelay[i] + ' / ' + delay);
         /*let promise = setDelay(delay * 1000);
         promise.then(function() {
             console.log(element);
         })*/
-        setTimeout(function() {
+
+        /*setTimeout(function() {
             console.log(element)
-        }, delay);
+        }, delay * 1000);*/
+        let res = createTask();
     });
     console.log('after forEach');   
 }
@@ -33,8 +35,12 @@ function setDelay(delay) {
     return new Promise(function(resolve,reject) {
         setTimeout(() => resolve('done'), delay);
     });
-    
+}
 
+function createTask() {
+    for (let i = 0; i < 1000000000; i++) {
+
+    }
 }
 
 printWithDelay('Мама мыла раму рано', [2, 6, 7,]);
