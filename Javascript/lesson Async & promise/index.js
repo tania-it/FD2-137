@@ -1,4 +1,4 @@
-/* const timerId = setTimeout(() => {
+const timerId = setTimeout(() => {
     console.log(5);
 }, 5_000);
 
@@ -36,10 +36,9 @@ function scheduleTask(task) {
 })     
 
 
-const stop = renderCycle( () => {
+const stop = renderCycle(() => {
 
-});
-*/
+    });
 
 let v = 0;
 const cancelCycle = renderCycle(() => {
@@ -60,3 +59,33 @@ function renderCycle(callback) {
         cancelAnimationFrame(idRef.id);
     };
 }
+
+/******************************************************************************* */
+const stop = renderCycle(() => {
+
+});
+
+function renderCycle(callback) {
+    const idRef = { id: 0};
+    const render = () => {
+        idRef.id = requestAnimationFrame(() => {
+                callback();
+                render();           
+            });
+    };
+    
+        render();
+        return () => {
+            cancelAnimationFrame(idRef.id);
+        };
+}
+
+/* let v = 0;
+renderCycle(() => console.log(++v)); запуск в консоли!*/ 
+
+ 
+
+const frameId = requestAnimationFrame(() => {
+
+})
+cancelAnimationFrame(idRef.id);
