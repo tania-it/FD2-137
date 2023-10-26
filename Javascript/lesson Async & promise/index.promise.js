@@ -1,4 +1,3 @@
-
 function delay(time) {
     return new Promise((resolve) => {
         setTimeout(() => resolve(), time);
@@ -10,35 +9,6 @@ function delay(time) {
 delay(5000).then(() => {
     console.log('success!');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
