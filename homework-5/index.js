@@ -27,6 +27,7 @@ function printWithDelay(text, arrDelay) {
             console.log(element)
         }, delay * 1000);*/
         let res = createTask();
+        res.then();
     });
     console.log('after forEach');   
 }
@@ -37,12 +38,10 @@ function setDelay(delay) {
     });
 }
 
-function createTask() {
+async function createTask() {
     for (let i = 0; i < 1000000000; i++) {
 
     }
 }
 
 printWithDelay('Мама мыла раму рано', [2, 6, 7,]);
-
-
