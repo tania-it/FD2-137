@@ -33,9 +33,7 @@ class Test {
         yield2;
         yield3;
     }
-} 
-
-[Symbol.toPrimitive](hint) {
+    [Symbol.toPrimitive](hint) {
     switch (hint) {
         case 'number':
             return 5;
@@ -43,6 +41,9 @@ class Test {
             return 'five';    
     }
 }
+} 
+
+
 
 
 const _disabled = new WeakMap();
@@ -51,8 +52,8 @@ const _disabled = new WeakMap();
         _disabled.set (this, false);
 
     }
- }
- get disabled() {
-    _disabled.get(this);
+    get disabled() {
+        _disabled.get(this);
+     }
  }
  
