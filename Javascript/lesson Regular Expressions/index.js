@@ -50,3 +50,10 @@ function t(text, data) {
     });
 }
 
+function tt(text, data) {
+    return text.replace(/{{(^т.*р$)}}/g, (match, key) => {
+        return Object.hasOwn(data, key) ? String(data[key]) : match;    
+    });
+}
+
+
