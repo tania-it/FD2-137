@@ -1,16 +1,21 @@
 
-export abstract class AbstractStorage<Value extends { id: Id }, Id extends number | string, Init = void> {
+export abstract class AbstractStorage<
+  Value extends { id: Id },
+  Id extends number | string,
+  Init = void,
+  InitParams = void,
+> {
   readonly #ready: Promise<Init>;
 
-  constructor() {
-    this.#ready = this.init();
+  constructor(initParams: InitParams) {
+    this.#ready = this.init(initParams);
   }
 
   get ready(): Promise<Init> {
     return this.#ready;
   }
 
-  init(): Promise<Init> {
+  init(params: InitParams): Promise<Init> {
     return Promise.resolve() as Promise<Init>;
   }
 

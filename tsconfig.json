@@ -13,6 +13,7 @@
   ],
   "references": [
     { "path": "./homework-7/tsconfig.json" },
-    { "path": "./classworks/homework-7-solved/tsconfig.json" }
+    { "path": "./classworks/homework-7-solved/tsconfig.json" },
+    { "path": "./classworks/todo-app/tsconfig.json" }
   ]
 }
