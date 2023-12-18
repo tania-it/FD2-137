@@ -1,0 +1,85 @@
+:root {
+    --border-size: 2px;
+    --header-size: 100px;
+  }
+    main {
+    height: min(600px, 70dvh);
+    background: lightgreen;
+  }
+  
+  .site-content {
+    flex: 1;
+    display: block;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: auto;
+  }
+  footer {
+  /*margin-top: 2em; */
+    /*height: min(100px, 10dvh);*/
+    background: red;
+    width: 100%;
+    position: fixed;
+    bottom:0;
+  }
+  .site-footer {
+  background: linear-gradient(to bottom, purple, rebeccapurple);
+  padding: 50px 0;
+}
+ header > * {
+    height: calc(var(--header-size) - (var(--border-size)*3));
+    border: var(--border-size) red solid;
+  }
+
+  header {
+    height: var(--header-size);
+    background: pink;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  #logo {
+    width: min(100%, 150px);
+    align-self: flex-start;
+    margin-left: 5em;
+  }
+  nav {
+    margin-right: 5em;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50%, 1fr));
+    place-items: center;
+    list-style-type: none;
+    justify-content: end;
+    align-content: center;
+  }
+
+  nav li:hover a{
+    background: black;
+    color: white;
+  }
+  nav li:in-focus {
+    background: green;
+    color: cyan;
+  }
+
+  header form #login {
+    border:1px solid #121d44;
+    border-radius: 5px;
+    padding:15px 20px;
+    color: #8d1d4a;
+    margin:0 2px;
+    
+  }
+  header form #login:hover {
+    border:1px solid #121d44;
+    background-color: #8d1d4a;
+    color: #fff;
+    transition: 0.3s;
+  }
+  header form .nav-button .nav-link {
+    margin-right: 5em;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50%, 1fr));
+  }
+  
+  

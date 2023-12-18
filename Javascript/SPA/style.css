@@ -1,0 +1,83 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    border-top: 2px solid #000;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+header .navbar .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 2.5rem;
+    color: #5e3d44;
+    padding-left: 2.5rem;
+}
+
+header form #login {
+    border: 1px solid #121d44;
+    border-radius: 5px;
+    padding: 15px 20px;
+    color: #8d1d4a;
+    margin: 0 2px;
+}
+
+header form #login:hover {
+    border: 1px solid #121d44;
+    background-color: #8d1d4a;
+    color: #fff;
+    transition: 0.3s;
+
+}
+
+header form #free {
+    border: 1px solid #121d44;
+    border-radius: 5px;
+    padding: 15px 20px;
+    background-color: #121d44;
+    color: #fff;
+    margin: 0 2px;
+    font-weight: 600;
+
+}
+
+header form #free:hover {
+    background-color: #fff;
+    color: #121d44;
+    transition: 0.3s;
+}
+
+footer {
+    background-color: #000;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+
+}
+
+footer .link {
+    color: #fff;
+    font-weight: 100;
+    text-decoration: none;
+    margin: 10px 5px 10px 0;
+}
+
+footer .row-3 .link {
+    margin: 5px 5px 5px 0;
+}
+
+
+main {
+    height: min(600px, 70dvh);
+    background: lightgreen;
+}
+
+.site-content {
+    flex: 1;
+    display: block;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: auto;
+    color: #8d1d4a;
+    background-color:#C5ADC5;
+}
